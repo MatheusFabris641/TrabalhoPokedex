@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Montador De Times PokéMon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/pok.css">
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <p class="texto-meio">Opções
+        </p>
+        <h1 class="nome-site">Pokedex</h1>
+        <img class="foto" src="../foto/images-removebg-preview.png  " alt="Minha foto">
+    </header>
+
+    <div class="container">
+
+        <div class="topo">
+        <h1 class="titulo">Escolha seus Pokémons</h1>
+        <input type="text" id="busca" class="caixa-pesquisa" placeholder="Digite um nome...">
+        <button id="btn-pesquisar" class="botao botao-pesquisar">Pesquisar</button>
+        <button id="btn-filtro" class="botao botao-filtro">Filtro</button>
+
+        <div id="painel-filtro" class="painel-filtro oculto">
+            <label for="filtro-tipo">Tipo:</label>
+            <select id="filtro-tipo" class="caixa-select">
+                <option value="">Todos</option>
+                <option value="fire">Fogo</option>
+                <option value="water">Água</option>
+                <option value="grass">Planta</option>
+                <option value="electric">Elétrico</option>
+                <option value="psychic">Psíquico</option>
+                <option value="ice">Gelo</option>
+                <option value="dragon">Dragão</option>
+                <option value="dark">Sombrio</option>
+                <option value="fairy">Fada</option>
+                <option value="normal">Normal</option>
+                <option value="fighting">Lutador</option>
+                <option value="flying">Voador</option>
+                <option value="poison">Veneno</option>
+                <option value="ground">Terra</option>
+                <option value="rock">Pedra</option>
+                <option value="bug">Inseto</option>
+                <option value="ghost">Fantasma</option>
+                <option value="steel">Aço</option>
+            </select>
+        </div>
+    </div>
+
+        <!-- Div 2: 6 quadrados -->
+        <div id="resultados" class="lista">
+
+            <div class="quadrado">
+                <p class="nome">Pokémon 1</p>
+                <img class="foto" src="https://placehold.co/160x160" alt="Foto do Jogador 1">
+                <button class="botao botao-add">Adicionar ao time</button>
+            </div>
+
+            <div class="quadrado">
+                <p class="nome">Pokémon 2</p>
+                <img class="foto" src="https://placehold.co/160x160" alt="Foto do Jogador 2">
+                <button class="botao botao-add">Adicionar ao time</button>
+            </div>
+
+            <div class="quadrado">
+                <p class="nome">Pokémon 3</p>
+                <img class="foto" src="https://placehold.co/160x160" alt="Foto do Jogador 3">
+                <button class="botao botao-add">Adicionar ao time</button>
+            </div>
+
+            <div class="quadrado">
+                <p class="nome">Pokémon 4</p>
+                <img class="foto" src="https://placehold.co/160x160" alt="Foto do Jogador 4">
+                <button class="botao botao-add">Adicionar ao time</button>
+            </div>
+
+            <div class="quadrado">
+                <p class="nome">Pokémon 5</p>
+                <img class="foto" src="https://placehold.co/160x160" alt="Foto do Jogador 5">
+                <button class="botao botao-add">Adicionar ao time</button>
+            </div>
+
+            <div class="quadrado">
+                <p class="nome">Pokémon 6</p>
+                <img class="foto" src="https://placehold.co/160x160" alt="Foto do Jogador 6">
+                <button class="botao botao-add">Adicionar ao time</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container">
+
+    <div class="topo">
+        <h1 class="titulo">Seu time (<span id="contador">0</span>/6)</h1>
+    </div>
+
+    <div id="time" class="lista"></div>
+</div>
+
+        
+
+
+            <!--
+            <div class="quadrado">
+        <p class="nome">Jogador 6</p>
+        <img class="foto" src="https://placehold.co/160x160" alt="Foto do Jogador 6">
+        <div class="botoes">
+          <button class="botao botao-add">Adicionar</button>
+          <button class="botao botao-remover">Remover</button>
+        </div>
+        <input type="text" class="caixa-texto" placeholder="Escreva aqui...">
+      </div>
+      -->
+
+        </div>
+    </div>
+
+<script src="../js/pok.js"></script>
+</body>
+
+</html>
+

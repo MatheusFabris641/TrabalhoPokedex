@@ -1,0 +1,12 @@
+C0 (Escopo em um parágrafo (problema, público, API e três funcionalidades):
+ 
+O projeto resolve a dificuldade de fãs de Pokémon organizarem e acompanharem estatísticas detalhadas de suas criaturas favoritas em um único lugar digital, sendo voltado para entusiastas de jogos e colecionadores da franquia. Utilizando a PokéAPI pública, a aplicação web permitirá ao usuário pesquisar pokémons por nome ou ID para consultar seus atributos, montar e salvar seu time favorito personalizado utilizando o armazenamento local do navegador (localStorage), e adicionar anotações estratégicas ou apelidos personalizados para cada integrante da equipe.
+ 
+3 Funcionalidades:
+ 
+Busca e Consulta na API: O usuário digita o nome de um Pokémon e a aplicação faz uma requisição GET na PokéAPI para exibir dados como imagem, tipo e atributos na tela.   
+
+Montagem de Time Favorito (CRUD): O usuário pode adicionar o Pokémon pesquisado à sua equipe favorita, visualizar a lista salva, editar suas anotações e excluir pokémons do time, com persistência no localStorage.
+
+Filtro ou Organização da Lista: Uma barra de busca ou filtro para localizar rapidamente os pokémons já salvos no time do usuário.
+ 
