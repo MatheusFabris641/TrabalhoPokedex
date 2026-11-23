@@ -1,4 +1,16 @@
 /* =========================
+   VARIÁVEIS
+========================= */
+
+:root {
+  --vermelho: #dc0a2d;
+  --vermelho-escuro: #880000;
+  --amarelo: #ffcb05;
+  --grafite: #1f2933;
+  --cinza-borda: #e5e7eb;
+}
+
+/* =========================
    CONFIGURAÇÕES GERAIS
 ========================= */
 
@@ -9,9 +21,12 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #e8e8e8;
-  color: #1f2933;
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(31, 41, 51, 0.07) 1.2px, transparent 0) 0 0 / 22px 22px,
+    linear-gradient(180deg, #f1f3f7 0%, #e1e5ec 100%);
+  color: var(--grafite);
+  min-height: 100vh;
 }
 
 /* =========================
@@ -23,64 +38,73 @@ body {
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   gap: 20px;
-  padding: 0px 32px;
-  background: #880000;
+  padding: 0 32px;
+  min-height: 110px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 45%),
+    linear-gradient(180deg, #b3001b 0%, #7a0010 100%);
   color: #ffffff;
-  min-height: 100px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  border-bottom-style: outset;
-  border-right-style: outset;
-  border-left-style: inset;
-  border-width: 5px;
-  box-shadow:#1f2933 100px;
-  border-color:#b10000
+  border-bottom: 6px solid #111111;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
 }
 
 .nome-site {
   justify-self: center;
   font-size: clamp(2rem, 6vw, 50px);
   font-weight: bold;
-  color:#e5e5e5;
   font-family: "Pokemon Solid", Arial, sans-serif;
   letter-spacing: 3px;
   color: #ffcb05;                 /* amarelo Pokémon */
-  -webkit-text-stroke: 7px #1a2788;  /* contorno azul (proporcional à fonte) */
+  -webkit-text-stroke: 7px #1a2788;  /* contorno azul */
   paint-order: stroke fill;
+  filter: drop-shadow(0 3px 0 rgba(0, 0, 0, 0.35));
 }
 
 .texto-meio {
   justify-self: start;
-  font-size: 1rem;
-  text-align: center;
-  color:#e3e3e3;
-  font-weight: bold;
-  font-family: "Press Start P2", monospace;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.45);
 }
 
 .foto {
   object-fit: cover;
 }
 
-/* Foto do cabeçalho */
+/* Foto do cabeçalho (pokébola) */
 .cabecalho .foto {
   justify-self: end;
-  width: 100  px;
+  width: 100px;
   height: 100px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+  transition: transform 0.4s ease;
+}
+
+.cabecalho .foto:hover {
+  transform: rotate(20deg) scale(1.08);
 }
 
 /* =========================
-   CONTAINERS
+   CONTAINERS (painéis)
 ========================= */
 
 .container {
-  width: 100%;
-  max-width: none;
-  margin: 0 auto;
-  padding: 32px 16px;
+  width: min(1400px, calc(100% - 32px));
+  margin: 28px auto;
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
   gap: 32px;
+  background: #ffffff;
+  border: 1px solid var(--cinza-borda);
+  border-radius: 20px;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
 }
 
 /* =========================
@@ -97,8 +121,12 @@ body {
 
 .titulo {
   width: 100%;
-  font-size: 24px;
-  color: #2b2b2b;;
+  font-family: "Press Start 2P", monospace;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--grafite);
+  padding-left: 14px;
+  border-left: 6px solid var(--vermelho);
 }
 
 /* =========================
@@ -108,26 +136,38 @@ body {
 .caixa-pesquisa {
   flex: 1;
   min-width: 200px;
-  height: 40px;
-  padding: 0 12px;
-  border: 1px solid #d2c4c4;
-  border-radius: 6px;
+  height: 44px;
+  padding: 0 18px;
+  border: 2px solid #d5d9e0;
+  border-radius: 999px;
+  background: #ffffff;
+  font-family: inherit;
   font-size: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .caixa-texto {
   width: 100%;
-  height: 40px;
+  height: 38px;
   padding: 0 12px;
-  border: 1px solid #c4cad2;
-  border-radius: 6px;
-  font-size: 15px;
+  border: 2px solid #d5d9e0;
+  border-radius: 10px;
+  background: #f9fafb;
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.caixa-pesquisa::placeholder,
+.caixa-texto::placeholder {
+  color: #9aa3af;
 }
 
 .caixa-pesquisa:focus,
 .caixa-texto:focus {
-  outline: 2px solid #2563eb;
-  border-color: transparent;
+  outline: none;
+  border-color: var(--vermelho);
+  box-shadow: 0 0 0 4px rgba(220, 10, 45, 0.18);
 }
 
 /* =========================
@@ -135,57 +175,61 @@ body {
 ========================= */
 
 .botao {
-  height: 40px;
-  padding: 0 10px;
+  height: 44px;
+  padding: 0 20px;
   border: none;
-  border-radius: 6px;
+  border-radius: 999px;
+  font-family: inherit;
   font-size: 15px;
+  font-weight: 800;
   cursor: pointer;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
+  transition: transform 0.12s, box-shadow 0.12s, filter 0.2s;
+}
+
+.botao:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.botao:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
 
 .botao:focus-visible {
-  outline: 2px solid #1f2933;
+  outline: 3px solid var(--grafite);
   outline-offset: 2px;
 }
 
 /* Pesquisar */
 .botao-pesquisar {
-  background: #dc0000;
+  background: linear-gradient(180deg, #ef233c 0%, #c1121f 100%);
   color: #ffffff;
-}
-
-.botao-pesquisar:hover {
-  background: #970000;
 }
 
 /* Filtro */
 .botao-filtro {
-  background: #c7c9cb;
-  color: #1f2933;
-}
-
-.botao-filtro:hover {
-  background: #d0d5dc;
+  background: linear-gradient(180deg, #f3f4f6 0%, #cfd3d9 100%);
+  color: var(--grafite);
 }
 
 /* Adicionar */
 .botao-add {
-  background: #16a34a;
+  background: linear-gradient(180deg, #22c55e 0%, #15803d 100%);
   color: #ffffff;
-}
-
-.botao-add:hover {
-  background: #15803d;
 }
 
 /* Remover */
 .botao-remover {
-  background: #dc2626;
+  background: linear-gradient(180deg, #ef4444 0%, #b91c1c 100%);
   color: #ffffff;
 }
 
-.botao-remover:hover {
-  background: #b91c1c;
+/* Botões dentro dos cartões */
+.quadrado .botao {
+  height: 38px;
+  border-radius: 10px;
 }
 
 /* Dois botões lado a lado */
@@ -213,7 +257,7 @@ body {
 .lista {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 12px;
+  gap: 14px;
   width: 100%;
   min-width: 0;
 }
@@ -223,38 +267,53 @@ body {
   width: 100%;
   min-width: 0;
   padding: 10px;
-  background: #940000;
-  border: 2px solid #780000;
-  border-radius: 8px;
+  gap: 6px;
+  background: linear-gradient(180deg, #ffffff 0%, #f1f3f6 100%);
+  border: 2px solid var(--cinza-borda);
+  border-top: 5px solid var(--vermelho);
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+@media (hover: hover) {
+  .quadrado:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
+  }
 }
 
 /* Nomes */
 .nome {
   max-width: 100%;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 800;
   text-align: center;
   overflow-wrap: anywhere;
-  color:#e0e0e0;
+  text-transform: capitalize;
+  color: var(--grafite);
 }
 
-/* Fotos dos jogadores */
+/* Fotos dos Pokémon */
 .quadrado .foto {
   display: block;
   width: 100%;
   max-width: 100px;
   height: 100px;
   flex-shrink: 0;
-  border-radius: 6px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: radial-gradient(circle at 50% 40%, #ffffff 0%, #e2e5ea 100%);
+  box-shadow: inset 0 0 0 3px rgba(220, 10, 45, 0.15);
 }
 
 /* Primeira lista: cartões menores */
 .container:first-of-type > .lista .quadrado {
-  height: 240px;   /* era 220px */
+  height: 240px;
 }
 
 /* Segunda lista: espaço para botões e campo */
@@ -275,41 +334,66 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 12px;
-  background: #ffffff;
-  border: 1px solid #d2c4c4;
-  border-radius: 6px;
+  padding: 12px 16px;
+  background: #f9fafb;
+  border: 2px solid var(--cinza-borda);
+  border-radius: 14px;
+}
+
+.painel-filtro label {
+  font-weight: 800;
 }
 
 .caixa-select {
   height: 40px;
-  padding: 0 10px;
-  border: 1px solid #c4cad2;
-  border-radius: 6px;
+  padding: 0 12px;
+  border: 2px solid #d5d9e0;
+  border-radius: 10px;
+  background: #ffffff;
+  font-family: inherit;
   font-size: 15px;
+  cursor: pointer;
+}
+
+.caixa-select:focus {
+  outline: none;
+  border-color: var(--vermelho);
+  box-shadow: 0 0 0 4px rgba(220, 10, 45, 0.18);
 }
 
 /* =========================
    CARTÕES GERADOS PELA API
 ========================= */
 
-/* Imagens da API são maiores e têm proporções diferentes */
-.quadrado .foto {
-  object-fit: contain;
-  background: #e0e0e0;
+.tipos {
+  font-size: 12px;
+  font-weight: 800;
+  color: #991b1b;
+  background: #fee2e2;
+  padding: 2px 10px;
+  border-radius: 999px;
+  text-transform: capitalize;
 }
 
-.tipos {
-  font-size: 13px;
-  color: #f0d0d0;
-  text-transform: capitalize;
+.tipos:empty {
+  display: none;
 }
 
 /* Espaço vazio do time */
 .quadrado.vazio {
-  opacity: 0.5;
+  opacity: 0.6;
   justify-content: flex-start;
   gap: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px dashed #b8bec8;
+  box-shadow: none;
+}
+
+@media (hover: hover) {
+  .quadrado.vazio:hover {
+    transform: none;
+    box-shadow: none;
+  }
 }
 
 /* Mensagens ("Carregando...", "Nenhum encontrado") ocupam a linha toda */
@@ -317,7 +401,11 @@ body {
   grid-column: 1 / -1;
   padding: 20px;
   text-align: center;
-  color: #2b2b2b;
+  font-weight: 800;
+  color: #475569;
+  background: #f9fafb;
+  border: 2px dashed #cbd5e1;
+  border-radius: 14px;
 }
 
 /* =========================
@@ -328,6 +416,9 @@ body {
   .cabecalho {
     padding: 10px 16px;
     gap: 10px;
+    min-height: 90px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
   }
 
   .nome-site {
@@ -336,7 +427,7 @@ body {
   }
 
   .texto-meio {
-    font-size: 0.8rem;
+    font-size: 0.5rem;
   }
 
   .cabecalho .foto {
@@ -345,7 +436,10 @@ body {
   }
 
   .container {
-    padding: 24px 12px;
+    width: calc(100% - 16px);
+    margin: 16px auto;
+    padding: 20px 12px;
+    border-radius: 16px;
   }
 
   /* Mantém os seis cartões na mesma linha */
@@ -354,7 +448,10 @@ body {
     gap: 12px;
     overflow-x: auto;
     justify-content: start;
-    padding-bottom: 10px;
+    padding-top: 6px;
+    padding-bottom: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--vermelho) var(--cinza-borda);
   }
 
   .quadrado {
@@ -362,7 +459,13 @@ body {
   }
 
   .titulo {
-    font-size: 21px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
   }
 }
 
